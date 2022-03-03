@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/kvs1995/rootin-tootin-team-generator#readme",
   "dependencies": {
+    "inquirer": "^8.2.0",
     "jest": "^27.5.1"
   }
 }
