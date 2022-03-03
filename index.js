@@ -15,6 +15,11 @@ const employeePicker = [
     type: 'list',
     name: 'pick',
     message: 'What team member would you like to add next?',
+    choices: [
+      'Add Engineer',
+      'Add Intern',
+      'I have completed the perfect team. I am done.'
+    ]
   }
 ];
 
@@ -69,8 +74,15 @@ function writeToFile(fileName, data) {
     err ? console.log(err) : console.log('Your html file has been generated.'))
 }
 
+//TODO: Promise functions -- potentailly use Promise.all()
 //TODO: Create a function to initialize app
-
+function init() {
+    inquirer.prompt(employeeQuestions)
+    .then((data) => {
+      writeToFile('index',data)
+    })
+}
 
 //TODO: Function call to initialize app 
 
+init();
