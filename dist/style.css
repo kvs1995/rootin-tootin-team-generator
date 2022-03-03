@@ -1,1 +1,15 @@
 /* styling for the generated html */
+body {
+  margin: 0;
+}
+
+header {
+  background-color:indianred;
+  color: whitesmoke;
+  padding: 3rem;
+}
+
+header h1 {
+  margin: 0;
+  text-align: center;
+}
