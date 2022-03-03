@@ -62,7 +62,12 @@ const internQuestions = [
     message: 'Where did this intern attend school?'
   }
 ]
-//TODO: Create a function to write README file
+//TODO: Create a function to write html file
+function writeToFile(fileName, data) {
+  const generateHTML = generateHTML(data);
+  fs.writeFile(`${fileName}.html`, generateHTML, (err) => 
+    err ? console.log(err) : console.log('Your html file has been generated.'))
+}
 
 //TODO: Create a function to initialize app
 
