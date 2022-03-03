@@ -1,0 +1,27 @@
+{
+  "name": "rootin-tootin-team-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kvs1995/rootin-tootin-team-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kvs1995/rootin-tootin-team-generator/issues"
+  },
+  "homepage": "https://github.com/kvs1995/rootin-tootin-team-generator#readme",
+  "dependencies": {
+    "jest": "^27.5.1"
+  }
+}
