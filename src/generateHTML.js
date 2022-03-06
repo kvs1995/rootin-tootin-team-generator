@@ -33,6 +33,7 @@ function createCards(data) {
     generatedCardString.concat(endingTagsStr)
   }
 }
+
 //function generateHTML that return the html in a template literal ``
 function generateHTML(data) {
   return `<!DOCTYPE html>
@@ -42,6 +43,7 @@ function generateHTML(data) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Gabagool Team Generator</title>
+    <link rel="stylesheet" type="text/css" href="./dist/jass.css" />
     <link rel="stylesheet" type="text/css" href="./dist/style.css" />
   </head>
   <body>
