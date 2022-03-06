@@ -21,31 +21,18 @@ const internHTMLStr = `<p>School: ${data[i].school}</p>`
 function createCards(data) {
   let generatedCardString=``;
   for (let i = 0; i<data.length; i++) {
-    generatedCardString = generatedCardString + employeeHTMLStr
-    if (data[i].constructor.name === 'Manager') {
-
+    generatedCardString.concat(employeeHTMLStr)
+    switch(data[i].constrcutor.name) {
+      case 'Manager': generatedCardString.concat(managerHTMLStr)
+        break;
+      case 'Engineer': generatedCardString.concat(engineerHTMLStr)
+        break;
+      case 'Intern': generatedCardString.concat(internHTMLStr)
+      break;
     }
-    if (data[i].constructor.name === 'Engineer') {
-      
-    }
-    if (data[i].constructor.name === 'Intern') {
-      
-    }
+    generatedCardString.concat(endingTagsStr)
   }
 }
-console.log(employeeList[0].constructor.name)
-/*       <div class="card">
-<div class="card-header">
-<h2>Name</h2>
-<h4>Job Title</h4>
-</div>
-<div class="card-body">
-<p id="id">ID</p>
-<p>Email: <a href="mailto: EMAIL">EMAIL</a></p>
-<p>Unique</p>
-</div>
-</div> 
-*/
 //function generateHTML that return the html in a template literal ``
 function generateHTML(data) {
   return `<!DOCTYPE html>
@@ -61,10 +48,8 @@ function generateHTML(data) {
     <header>
       <h1>TEAM GABAGOOL</h1>
     </header>
-    <main>
-      <div class="cards"> 
-        <div class="card"> 
-      </div>
+    <main> 
+      ${createCards(data)}
     </main>
   </body>
   </html>
