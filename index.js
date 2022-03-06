@@ -80,11 +80,11 @@ TO DO (questions):
   currentEmployeeType = employeeType
   //create/set responses variable equal to the responses from inquirer.prompt of questions
     //use spread method on responses so I can potentially add to the new Employee in a list rather than pushing
-  const { ...responses } = await inquirer.prompt(questions)
+  const responses  = await inquirer.prompt(questions)
   //call the new Employee function to add the puhs the new employee to the list
   newEmployee(responses)
   //return a ternary operator that reruns getEmployee if the currentEmployeeType is set to the choice indicating they are complete.
-  return (responses.nextEmployeeType !== 'The perfect team is complete.') ? getEmployees(responses.nextEmployeeType) : employeeList;
+  return (responses.nextEmployeeType !== 'The perfect team is complete.') ? getEmployees(responses.nextEmployeeType) : console.log(employeeList);
 }
 
 //Must add a middle function can be used to call the get Employee again. 
