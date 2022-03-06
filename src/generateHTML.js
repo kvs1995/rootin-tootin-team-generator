@@ -1,5 +1,7 @@
+
 //TODO: Create a function to generate the HTML for the html 
 function createCards(data) {
+  let generatedCardString=``;
   for (let i = 0; i<data.length; i++) {
 
   }
@@ -22,7 +24,7 @@ function generateHTML(data) {
     </header>
     <main>
       <div class="cards"> 
-     
+        <div class="card"> 
       </div>
     </main>
   </body>

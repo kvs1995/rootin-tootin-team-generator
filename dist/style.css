@@ -13,3 +13,51 @@ header h1 {
   margin: 0;
   text-align: center;
 }
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  padding: 5rem 20%;
+}
+
+.card {
+  width: 17rem;
+  box-shadow: 3px 3px 15px 2px gray;
+  margin:10px  3px;
+  background-color: whitesmoke;
+
+}
+
+.card-header{ 
+  background-color:black !important;
+  color:whitesmoke!important;
+  padding: 10px !important;
+}
+
+.card-body {
+  background-color:white;
+  color: black;
+
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 1rem;
+  border: 2px solid lightgray;
+  padding: 0px !important;
+}
+
+.card-body p {
+  border-top: 2px solid lightgray;
+  padding: 1rem;
+  margin:0px;
+}
+
+#id {
+  border-top: none;
+  border-bottom: 2px solid lightgray;
+}
+.card-body a {
+  color: indianred;
+}
+
