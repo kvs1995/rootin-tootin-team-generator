@@ -36,3 +36,7 @@
   
 //create function to write the generated HTML to index.html file, passes in the data from init function
 
+//create init function - should be async await so that it waits for the employeeList from the get Employees
+
+
+//call init function to initliaze the application. 
