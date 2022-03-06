@@ -1,4 +1,6 @@
 //Create the unique html for each employeetype and the general addition
+//TODO: Create a function to generate the HTML for the html 
+
 function createCards(data) {
 
   let generatedCardString=``;
@@ -27,7 +29,6 @@ function createCards(data) {
 
   const internHTMLStr = `          <p>School: ${data[i].school}</p>`
 
-//TODO: Create a function to generate the HTML for the html 
 
     generatedCardString =generatedCardString+employeeHTMLStr
     switch(data[i].constructor.name) {
