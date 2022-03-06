@@ -13,3 +13,17 @@
   const Manager = require('./lib/Manager');
   const Engineer = require('./lib/Engineer');
   const Intern = require('./lib/Intern');
+
+  //create a list of questions to be asked by the inquirer prompt
+
+
+  //create an empty employeeList array that will have each of the new employees pushed into it.
+
+  //create/set the currentEmployeeType equal to 'Manager' - to be used in intial call
+
+  //create function that prompts inquirer with questions and loops through until the user is done adding new employee
+
+  //create/set responses variable equal to the responses from inquirer.prompt of questions
+    //use spread method on responses so I can potentially add to the new Employee in a list rather than pushing
+
+    
