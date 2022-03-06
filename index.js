@@ -14,6 +14,10 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+//create an empty employeeList array that will have each of the new employees pushed into it.
+let employeeList = [];
+//create/set the currentEmployeeType equal to 'Manager' - to be used in intial call
+let currentEmployeeType = 'Manager';
 //create a list of questions to be asked by the inquirer prompt
 
 /*
@@ -68,30 +72,32 @@ const questions = [
   }
 ]
 
-//create an empty employeeList array that will have each of the new employees pushed into it.
-let employeeList = [];
-//create/set the currentEmployeeType equal to 'Manager' - to be used in intial call
-let currentEmployeeType = 'Manager';
 //create function that prompts inquirer with questions and loops through until the user is done adding new employee
 const getEmployees = async(currentEmployeeType) => {
   //create/set responses variable equal to the responses from inquirer.prompt of questions
     //use spread method on responses so I can potentially add to the new Employee in a list rather than pushing
   const { ...responses } = await inquirer.prompt(questions)
-  //psuh the responses in the employeeList 
-    //based on the currentEmployeeType, use switch operator.
-  switch(currentEmployeeType) {
-    case 'Manager': 
-      employeeList.push(new Manager(responses));
-    case 'Engineer':
-      employeeList.push(new Engineer(responses));
-    case 'Intern': 
-      employeeList.push(new Intern(responses));
-  }
+  addEmployee(responses)
   //After pushing the new employee to the employeeList,   currentEmployeeType can be set to the responses.nextEmployeeType
   currentEmployeeType = responses.nextEmployeeType
   //return a ternary operator that reruns getEmployee if the currentEmployeeType is set to the choice indicating they are complete.
   return currentEmployeeType !== 'The perfect team is complete.' ? getEmployees(currentEmployeeType) : employeeList;
 }
+
+//Must add a middle function can be used to call the get Employee again. 
+const addEmployees = (responses) => {
+    //psuh the responses in the employeeList 
+    //based on the currentEmployeeType, use switch operator.
+    switch(currentEmployeeType) {
+      case 'Manager': 
+        employeeList.push(new Manager(responses));
+      case 'Engineer':
+        employeeList.push(new Engineer(responses));
+      case 'Intern': 
+        employeeList.push(new Intern(responses));
+    }
+}
+
 //create function to write the generated HTML to index.html file, passes in the data from init function
 function writeToFile(fileName, data) {
   const generateHTMLString = generateHTML(data);
