@@ -78,33 +78,22 @@ TO DO (questions):
     }
   ]
   currentEmployeeType = employeeType
-  console.log('Line 81, currentEmployeeType: ',currentEmployeeType)
   //create/set responses variable equal to the responses from inquirer.prompt of questions
     //use spread method on responses so I can potentially add to the new Employee in a list rather than pushing
   const { ...responses } = await inquirer.prompt(questions)
   //call the new Employee function to add the puhs the new employee to the list
-  // console.log(responses)
-  console.log('Responses: ', responses)
-  newEmployee(responses, currentEmployeeType)
-
-  // //After pushing the new employee to the employeeList,   currentEmployeeType can be set to the responses.nextEmployeeType
-  // console.log(currentEmployeeType)
-  // let nextEmployeeType = responses.nextEmployeeType
-  // console.log(nextEmployeeType)
-  // employee = responses.nextEmployeeType
+  newEmployee(responses)
   //return a ternary operator that reruns getEmployee if the currentEmployeeType is set to the choice indicating they are complete.
   return (responses.nextEmployeeType !== 'The perfect team is complete.') ? getEmployees(responses.nextEmployeeType) : employeeList;
 }
 
 //Must add a middle function can be used to call the get Employee again. 
-const newEmployee = (responses, employeeType) => {
+const newEmployee = (responses) => {
     //psuh the responses in the employeeList 
     //based on the currentEmployeeType, use switch operator.
-    console.log(employeeType)
-    console.log(employeeList)
-    switch(employeeType) {
+    switch(currentEmployeeType) {
       case 'Manager': 
-        employeeList.push(new Manager(responses))
+        employeeList.push(new Manager(responses,))
         break;
       case 'Engineer':
         employeeList.push(new Engineer(responses));
@@ -112,7 +101,6 @@ const newEmployee = (responses, employeeType) => {
       case 'Intern': 
         employeeList.push(new Intern(responses));
     }
-    console.log(employeeList)
 }
 
 //create function to write the generated HTML to index.html file, passes in the data from init function
@@ -123,10 +111,7 @@ function writeToFile(fileName, data) {
 }
 //create init function - should be async await so that it waits for the employeeList from the get Employees
 const init = async() => {
-
   const data = await getEmployees(employeeType)
-  //console.log(data)
-  // console.log(data)
   writeToFile('index', data);
 }
 
