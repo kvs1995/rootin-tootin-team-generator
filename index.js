@@ -74,18 +74,23 @@ let employeeList = [];
 let currentEmployeeType = 'Manager';
 //create function that prompts inquirer with questions and loops through until the user is done adding new employee
 const getEmployees = async(currentEmployeeType) => {
-
-
   //create/set responses variable equal to the responses from inquirer.prompt of questions
     //use spread method on responses so I can potentially add to the new Employee in a list rather than pushing
-
+  const { ...responses } = await inquirer.prompt(questions)
   //psuh the responses in the employeeList 
     //based on the currentEmployeeType, use switch operator.
-
-  //After pushing the new employee to the employeeList, currentEmployeeType can be set to the responses.nextEmployeeType
-
+  switch(currentEmployeeType) {
+    case 'Manager': 
+      employeeList.push(new Manager(responses));
+    case 'Engineer':
+      employeeList.push(new Engineer(responses));
+    case 'Intern': 
+      employeeList.push(new Intern(responses));
+  }
+  //After pushing the new employee to the employeeList,   currentEmployeeType can be set to the responses.nextEmployeeType
+  currentEmployeeType = responses.nextEmployeeType
   //return a ternary operator that reruns getEmployee if the currentEmployeeType is set to the choice indicating they are complete.
-
+  return currentEmployeeType !== 'The perfect team is complete.' ? getEmployees(currentEmployeeType) : employeeList;
 }
 //create function to write the generated HTML to index.html file, passes in the data from init function
 function writeToFile(fileName, data) {
@@ -96,7 +101,9 @@ function writeToFile(fileName, data) {
 //create init function - should be async await so that it waits for the employeeList from the get Employees
 const init = async() => {
   const data = await getEmployees(currentEmployeeType)
+  //console.log(data)
   writeToFile('index', data);
 }
 
 //call init function to initliaze the application. 
+init();
