@@ -17,8 +17,9 @@ const Intern = require('./lib/Intern');
 //create an empty employeeList array that will have each of the new employees pushed into it.
 let employeeList = [];
 //create/set the currentEmployeeType equal to 'Manager' - to be used in intial call
-let currentEmployeeType = 'Manager';
+let initialEmployeeType = 'Manager';
 //create a list of questions to be asked by the inquirer prompt
+// let newEmployeeType;
 
 /*
 TO DO (questions):
@@ -46,19 +47,19 @@ const questions = [
     type: 'input',
     name: 'officeNumber',
     message: 'Please provide the manager\'s office phone number.',
-    when: currentEmployeeType === 'Manager',
+    when: employeeType === 'Manager',
   },
   {
     type: 'input',
     name: 'github',
     message: 'Please provide the new Engineer\'s github username.',
-    when: currentEmployeeType === 'Engineer',
+    when: employeeType === 'Engineer',
   },
   {
     type: 'input',
     name: 'school',
     message: 'Where did the intern attend school?',
-    when: currentEmployeeType === 'Intern',
+    when: employeeType === 'Intern',
   },
   {
     type: 'list',
@@ -67,27 +68,37 @@ const questions = [
     choices: [
       'Engineer',
       'Intern',
-      'The perfect team is completed.'
+      'The perfect team is complete.'
     ],
   }
 ]
 
 //create function that prompts inquirer with questions and loops through until the user is done adding new employee
-const getEmployees = async(currentEmployeeType) => {
+
+const getEmployees = async(employeeType) => {
+  currentEmployeeType = employeeType
+  console.log('getEmployees async',currentEmployeeType)
   //create/set responses variable equal to the responses from inquirer.prompt of questions
     //use spread method on responses so I can potentially add to the new Employee in a list rather than pushing
   const { ...responses } = await inquirer.prompt(questions)
-  addEmployee(responses)
-  //After pushing the new employee to the employeeList,   currentEmployeeType can be set to the responses.nextEmployeeType
-  currentEmployeeType = responses.nextEmployeeType
+  //call the new Employee function to add the puhs the new employee to the list
+  // console.log(responses)
+  newEmployee(responses)
+
+  // //After pushing the new employee to the employeeList,   currentEmployeeType can be set to the responses.nextEmployeeType
+  // console.log(currentEmployeeType)
+  let nextEmployeeType = responses.nextEmployeeType
+  console.log(nextEmployeeType)
+  // employee = responses.nextEmployeeType
   //return a ternary operator that reruns getEmployee if the currentEmployeeType is set to the choice indicating they are complete.
-  return currentEmployeeType !== 'The perfect team is complete.' ? getEmployees(currentEmployeeType) : employeeList;
+  return (responses.nextEmployeeType !== 'The perfect team is complete.') ? getEmployees(nextEmployeeType) : employeeList;
 }
 
 //Must add a middle function can be used to call the get Employee again. 
-const addEmployees = (responses) => {
+const newEmployee = (responses) => {
     //psuh the responses in the employeeList 
     //based on the currentEmployeeType, use switch operator.
+    console.log()
     switch(currentEmployeeType) {
       case 'Manager': 
         employeeList.push(new Manager(responses));
@@ -96,6 +107,7 @@ const addEmployees = (responses) => {
       case 'Intern': 
         employeeList.push(new Intern(responses));
     }
+    console.log(employeeList)
 }
 
 //create function to write the generated HTML to index.html file, passes in the data from init function
@@ -106,8 +118,10 @@ function writeToFile(fileName, data) {
 }
 //create init function - should be async await so that it waits for the employeeList from the get Employees
 const init = async() => {
-  const data = await getEmployees(currentEmployeeType)
+
+  const data = await getEmployees(initialEmployeeType)
   //console.log(data)
+  console.log(data)
   writeToFile('index', data);
 }
 
