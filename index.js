@@ -94,6 +94,9 @@ function writeToFile(fileName, data) {
   err ? console.log(err) : console.log('Your HTML has been generated.'))
 }
 //create init function - should be async await so that it waits for the employeeList from the get Employees
-
+const init = async() => {
+  const data = await getEmployees(currentEmployeeType)
+  writeToFile('index', data);
+}
 
 //call init function to initliaze the application. 
