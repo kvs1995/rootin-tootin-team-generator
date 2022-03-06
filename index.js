@@ -69,9 +69,9 @@ const questions = [
 ]
 
 //create an empty employeeList array that will have each of the new employees pushed into it.
-
+let employeeList = [];
 //create/set the currentEmployeeType equal to 'Manager' - to be used in intial call
-
+let currentEmployeeType = 'Manager';
 //create function that prompts inquirer with questions and loops through until the user is done adding new employee
 
   //create/set responses variable equal to the responses from inquirer.prompt of questions
