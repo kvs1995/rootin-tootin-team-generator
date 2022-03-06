@@ -1,37 +1,46 @@
 //Create the unique html for each employeetype and the general addition
-const employeeHTMLStr = `
-      <div class="card">
-        <div class="card-header">
-          <h2>${data[i].name}</h2>
-          <h4>${data[i].constructor.name}</h4>
-        </div>
-        <div class="card-body">
-          <p id="id">ID: ${data[i].id}</p>
-          <p>Email: <a href="mailto: ${data[i].email}">${data[i].email}</a></p>
-`
-const endingTagsStr = `</div></div>`
+function createCards(data) {
 
-const managerHTMLStr = `<p>Office Number: ${data[i].officeNumber}</p>`
+  let generatedCardString=``;
+  console.log(data)
+  // return "heyyy"
+  for (let i = 0; i<data.length; i++) {
+  const employeeHTMLStr = `
+        <div class="card">
+          <div class="card-header">
+            <h2>${data[i].name}</h2>
+            <h4>${data[i].constructor.name}</h4>
+          </div>
+          <div class="card-body">
+            <p id="id">ID: ${data[i].id}</p>
+            <p>Email: <a href="mailto: ${data[i].email}">${data[i].email}</a></p>
+  `
 
-const engineerHTMLStr = `<p>GitHub: <a href="https://www.github.com/${data[i].github}">${data[i].github}</a></p>`
+  const endingTagsStr = `
+           </div>
+        </div>`
 
-const internHTMLStr = `<p>School: ${data[i].school}</p>`
+  const managerHTMLStr = `          <p>Office Number: ${data[i].officeNumber}</p>`
+
+
+  const engineerHTMLStr = `          <p>GitHub: <a href="https://www.github.com/${data[i].github}">${data[i].github}</a></p>`
+
+  const internHTMLStr = `          <p>School: ${data[i].school}</p>`
 
 //TODO: Create a function to generate the HTML for the html 
-function createCards(data) {
-  let generatedCardString=``;
-  for (let i = 0; i<data.length; i++) {
-    generatedCardString.concat(employeeHTMLStr)
-    switch(data[i].constrcutor.name) {
-      case 'Manager': generatedCardString.concat(managerHTMLStr)
+
+    generatedCardString =generatedCardString+employeeHTMLStr
+    switch(data[i].constructor.name) {
+      case 'Manager': generatedCardString = generatedCardString + managerHTMLStr
         break;
-      case 'Engineer': generatedCardString.concat(engineerHTMLStr)
+      case 'Engineer': generatedCardString = generatedCardString + engineerHTMLStr
         break;
-      case 'Intern': generatedCardString.concat(internHTMLStr)
+      case 'Intern': generatedCardString = generatedCardString + internHTMLStr
       break;
     }
-    generatedCardString.concat(endingTagsStr)
+    generatedCardString = generatedCardString+ endingTagsStr
   }
+  return generatedCardString
 }
 
 //function generateHTML that return the html in a template literal ``

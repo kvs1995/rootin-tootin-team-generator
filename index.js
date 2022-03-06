@@ -84,7 +84,7 @@ TO DO (questions):
   //call the new Employee function to add the puhs the new employee to the list
   newEmployee(responses)
   //return a ternary operator that reruns getEmployee if the currentEmployeeType is set to the choice indicating they are complete.
-  return (responses.nextEmployeeType !== 'The perfect team is complete.') ? getEmployees(responses.nextEmployeeType) : console.log(employeeList);
+  return (responses.nextEmployeeType !== 'The perfect team is complete.') ? getEmployees(responses.nextEmployeeType) : employeeList;
 }
 
 //Must add a middle function can be used to call the get Employee again. 
