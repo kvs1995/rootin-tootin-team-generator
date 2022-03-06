@@ -73,6 +73,8 @@ let employeeList = [];
 //create/set the currentEmployeeType equal to 'Manager' - to be used in intial call
 let currentEmployeeType = 'Manager';
 //create function that prompts inquirer with questions and loops through until the user is done adding new employee
+const getEmployees = async(currentEmployeeType) => {
+
 
   //create/set responses variable equal to the responses from inquirer.prompt of questions
     //use spread method on responses so I can potentially add to the new Employee in a list rather than pushing
@@ -84,9 +86,13 @@ let currentEmployeeType = 'Manager';
 
   //return a ternary operator that reruns getEmployee if the currentEmployeeType is set to the choice indicating they are complete.
 
-
+}
 //create function to write the generated HTML to index.html file, passes in the data from init function
-
+function writeToFile(fileName, data) {
+  const generateHTMLString = generateHTML(data);
+  fs.writeFile(`${fileName}.html`,generateHTMLString, (err) =>
+  err ? console.log(err) : console.log('Your HTML has been generated.'))
+}
 //create init function - should be async await so that it waits for the employeeList from the get Employees
 
 
