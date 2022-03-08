@@ -4,8 +4,6 @@
 function createCards(data) {
 
   let generatedCardString=``;
-  console.log(data)
-  // return "heyyy"
   for (let i = 0; i<data.length; i++) {
   const employeeHTMLStr = `
         <div class="card">
@@ -15,7 +13,7 @@ function createCards(data) {
           </div>
           <div class="card-body">
             <p id="id">ID: ${data[i].id}</p>
-            <p id="email">Email: <a href="mailto: ${data[i].email}">${data[i].email}</a></p>
+            <p id="email">Email: <a href="mailto: ${data[i].email}" target="_blank">${data[i].email}</a></p>
   `
 
   const endingTagsStr = `
@@ -25,7 +23,7 @@ function createCards(data) {
   const managerHTMLStr = `          <p>Office Number: ${data[i].officeNumber}</p>`
 
 
-  const engineerHTMLStr = `          <p>GitHub: <a href="https://www.github.com/${data[i].github}">${data[i].github}</a></p>`
+  const engineerHTMLStr = `          <p>GitHub: <a href="https://www.github.com/${data[i].github}" target="_blank">${data[i].github}</a></p>`
 
   const internHTMLStr = `          <p>School: ${data[i].school}</p>`
 

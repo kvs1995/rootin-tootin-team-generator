@@ -51,17 +51,13 @@ describe("Employee", () => {
       expect(employee.getEmail()).toBe(employeeInfo.email);
     });
   });
-})
-//a name is specified
 
-//an employee ID is specified
+  describe("getRole", () => {
+    it("should return the role of the new created constructor", () => {
+      const employeeInfo = { id:1, name:"Kendall", email:"fake@gmail.com"};
+      const employee = new Employee(employeeInfo);
 
-//an email address is specified
-
-///getName returns a name
-
-//getId() returns an Id
-
-//getEmail() reutnrs an email
-
-//getRole return an employee 
+      expect(employee.getRole()).toBe("Employee");
+    });
+  });
+});
