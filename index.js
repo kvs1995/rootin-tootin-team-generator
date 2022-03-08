@@ -51,7 +51,7 @@ TO DO (questions):
     {
       type: 'input',
       name: 'officeNumber',
-      message: 'Please provide the manager\'s office phone number.',
+      message: 'Please provide the manager\'s office number.',
       when: employeeType === 'Manager',
     },
     {

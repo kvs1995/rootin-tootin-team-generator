@@ -15,7 +15,7 @@ function createCards(data) {
           </div>
           <div class="card-body">
             <p id="id">ID: ${data[i].id}</p>
-            <p>Email: <a href="mailto: ${data[i].email}">${data[i].email}</a></p>
+            <p id="email">Email: <a href="mailto: ${data[i].email}">${data[i].email}</a></p>
   `
 
   const endingTagsStr = `
@@ -69,6 +69,5 @@ function generateHTML(data) {
   
   `
 }
-//  ${createCards(employees)}
 //export the module 
 module.exports = generateHTML;

@@ -18,14 +18,16 @@ main {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: space-around;
-  padding: 5rem 20%;
+  justify-content: center;
+  padding-left: 20%;
+  padding-right: 20%;
+
 }
 
 .card {
-  width: 17rem;
+  /* width: 17rem; */
   box-shadow: 3px 3px 15px 2px gray;
-  margin:10px  3px;
+  margin:10px  10px;
   background-color: whitesmoke;
 
 }
@@ -45,14 +47,19 @@ main {
   margin: 2rem 1rem;
   border: 2px solid lightgray;
   padding: 0px !important;
+
 }
 
 .card-body p {
   border-top: 2px solid lightgray;
   padding: 1rem;
   margin:0px;
+
 }
 
+#email {
+  overflow-wrap: break-word;
+}
 #id {
   border-top: none;
   border-bottom: 2px solid lightgray;
