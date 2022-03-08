@@ -19,7 +19,7 @@
   
   Take a look at this short video for a walkthrough on how to use the application:
 
-  ![video](./Assets/Team Generator Walkthrough.mp4)
+  ![video](./Assets/Team_Generator_Walkthrough.mp4)
 
   ## Contribution Guidelines
   None!
