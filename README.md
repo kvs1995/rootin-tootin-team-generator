@@ -19,7 +19,7 @@
   
   Take a look at this short video for a walkthrough on how to use the application:
 
-  ![video](./Assets/Team_Generator_Walkthrough.mp4)
+  ![video](./Assets/Team_Generator_Walkthrough.gif)
 
   ## Contribution Guidelines
   None!
@@ -36,3 +36,8 @@
 
   ## License: MIT
       This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+  ## Github Information
+  Video Walkthrough: https://drive.google.com/file/d/1vSJx_Nk6hucRvK4ZhX0Ra8fFMBADhQu1/view
+  GitHub Respository: https://github.com/kvs1995/rootin-tootin-team-generator
+  Generated HTML: https://kvs1995.github.io/rootin-tootin-team-generator/
